@@ -1,6 +1,35 @@
-﻿
+﻿using System.Security.Cryptography.X509Certificates;
+
 namespace DemosCSharp72
 {
+    public class LocalFunctions
+    {
+        public static Tuple<double, double> solve(double a, double b, double c) {
+            //double calculate(double x, double y, double z) 
+            //{
+            //    return y * y - 4 * x * z;
+            //}
+
+            // var disc = calculate(a, b, c);
+            var disc = calculate();
+            var rootD = Math.Sqrt(disc);
+            return Tuple.Create(
+                    (-b-rootD) / (2*a),
+                    (-b+rootD)/(2*a)
+                );
+            // calling lambda function local without parameters
+            double calculate() => b * b - 4 * a * c;
+        }
+    }
+    public class Point
+    {
+        public int x, y;
+        //public void Deconsctruct(out int x, out int y)
+        //{
+        //    x = x;
+        //    y = y;
+        //}
+    }
     static class Demo
     {
         public class Person
@@ -8,6 +37,27 @@ namespace DemosCSharp72
             public int id;   
             public string? name;
         }
+
+        public class Rectangle : Shape
+        {
+            public int width, height;
+        }
+
+        public class Circle : Shape
+        {
+            public int x, y;
+        }
+        static Tuple<double, double> sumAndProduct(double a, double b)
+        {
+            return Tuple.Create(a + b, a - b);
+        }
+        // Tuple on C#7
+        static (double sum, double product) newSumAndProduct(double a, double b)
+        {
+            return (a + b, a - b) ;
+        } 
+
+        
         static void Main(string[] args)
         {
             ////////////////////// ANONYMOUS TYPE \\\\\\\\\\\\\\\\\\\\\\
@@ -23,7 +73,7 @@ namespace DemosCSharp72
             ////////////////////// NONYMOUS METHODS \\\\\\\\\\\\\\\\\\\\\\
             /// Anonymous methods are the methods without a name, and can be invoked directly by delegate
             /// 
-
+            
             //List<Person> list = new List<Person>()
             //{
             //    new Person{id = 1, name = "One"},
@@ -35,6 +85,8 @@ namespace DemosCSharp72
 
             //Console.WriteLine(p.id);
 
+            //var sp2 = newSumAndProduct(11, 10);
+            //Console.WriteLine($"sum2: {sp2.sum}, product2: {sp2.product}");
 
             ///////////////////////////////////////////////////////////////            
 
@@ -44,16 +96,19 @@ namespace DemosCSharp72
             /// Extension methods enable you to "add" methods to existing types without creating a new derived type, 
             /// but they're called as if they were instance methods on the extended type
             /// 
-
+            
             //int[] ints = { 10, 45, 15, 39, 21, 26,0, 89 };
             //var result = ints.OrderBy(g => g);
-
+            
             //Console.WriteLine(string.Join(",", result));
             //foreach (var i in result)
             //{
             //    System.Console.Write(i + " ");
             //}
 
+            //    var rect = shape as Rectangle;
+            //    if (rect != null)
+            //    {
 
             //////////////////////////////////////////////////////////////////
 
@@ -67,7 +122,7 @@ namespace DemosCSharp72
             //Console.WriteLine($"Condition Value: {condition}");
 
             //int? x = condition ? 12 : null;
-
+            
             //Console.WriteLine($"Result of consditional Operator: {x}");
 
             //////////////////////////////////////////////////////////////////////
