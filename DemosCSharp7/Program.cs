@@ -85,6 +85,25 @@ namespace DemosCSharp72
 
             //Console.WriteLine(p.id);
 
+            ///////////// DECOSNTRUCTION \\\\\\\\\\\\\\\\\\\\\\\
+
+            //var me = (name: "Jonh", ege: 123);
+            //var (name, ege) = me;
+
+            //Console.WriteLine(name);
+            //Console.WriteLine(ege);
+
+            //var myPoint = new Point();
+            //var (x, y) = myPoint;
+            //Console.WriteLine($"{x}");
+
+            /////////////////////////////////////////////////////
+
+            ////////////// TUPLAS \\\\\\\\\\\\\\\\\
+
+            //var sp = sumAndProduct(5, 5);
+            //Console.WriteLine($"sum: {sp.Item1}, product: {sp.Item2}");
+
             //var sp2 = newSumAndProduct(11, 10);
             //Console.WriteLine($"sum2: {sp2.sum}, product2: {sp2.product}");
 
